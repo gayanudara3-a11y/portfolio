@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Character Encoding & Responsive Viewport -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Metadata -->
+  <title>Apex Engineering & Technical Solutions | Infrastructure & Consulting</title>
+  <meta name="description" content="Leading engineering, architecture, and environmental consulting services. Delivering innovative and sustainable infrastructure solutions.">
+  <link rel="canonical" href="https://www.example.com/">
+
+  <!-- Stylesheet (Lightweight, Mobile-First CSS) -->
+  <style>
+    /* CSS Reset & Variables */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary-color: #0b3954;      /* Deep trust blue */
+      --secondary-color: #087e8b;    /* Energetic action teal/blue */
+      --accent-color: #ff5a5f;       /* Accent highlight */
+      --whatsapp-color: #25d366;     /* WhatsApp brand green */
+      --text-dark: #1f2937;
+      --text-muted: #4b5563;
+      --bg-light: #f8fafc;
+      --white: #ffffff;
+      --border-color: #e2e8f0;
+      --radius: 8px;
+      --transition: all 0.2s ease-in-out;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Accessibility / Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 8px 16px;
+      z-index: 1000;
+      text-decoration: none;
+      transition: top 0.2s;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Navigation Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 900;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 4.5rem;
+    }
+
+    .brand-logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      min-height: 44px; /* WCAG touch target height */
+      display: inline-flex;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    nav a:hover, nav a:focus {
+      color: var(--secondary-color);
+    }
+
+    /* Button Styles (WCAG Compliant Hit Areas >= 44x44px) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      min-width: 44px;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background-color: var(--secondary-color);
+      color: var(--white);
+    }
+
+    .btn-primary:hover, .btn-primary:focus {
+      background-color: #06636d;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+
+    .btn-secondary:hover, .btn-secondary:focus {
+      background-color: var(--bg-light);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 5rem 0 4rem;
+      background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 100%);
+      text-align: left;
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      color: var(--primary-color);
+      margin-bottom: 1.25rem;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Services Grid */
+    .services {
+      padding: 4.5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      padding: 2rem;
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      border-color: var(--secondary-color);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      transform: translateY(-2px);
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      color: var(--primary-color);
+      margin-bottom: 0.75rem;
+    }
+
+    /* Contact / Enquiry Section */
+    .contact-section {
+      padding: 4.5rem 0;
+      background-color: var(--bg-light);
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 3rem;
+    }
+
+    .contact-form {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      min-height: 44px; /* Hit area accessibility */
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: 2px solid var(--secondary-color);
+      border-color: transparent;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 3rem 0 2rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-copy {
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 1.5rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Floating WhatsApp Widget Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: var(--whatsapp-color);
+      color: var(--white);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    .whatsapp-float svg {
+      width: 32px;
+      height: 32px;
+      fill: currentColor;
+    }
+
+    /* Responsive Breakpoints (Mobile First) */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      nav ul {
+        display: none; /* Modern mobile nav drawer can hook here */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header / Navigation Bar -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="#" class="brand-logo" aria-label="Home">
+        <!-- SVG Vector Logo -->
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <span>Apex Engineering</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact" class="btn btn-primary">Request a Quote</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>End-to-End Infrastructure & Engineering Solutions</h1>
+          <p>Delivering state-of-the-art civil, structural, architectural, and environmental management services engineered for long-term sustainability.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Start Your Project</a>
+            <a href="#services" class="btn btn-secondary">Explore Capabilities</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Services Section -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Core Capabilities</h2>
+          <p>Multi-disciplinary engineering and technical excellence from concept to completion.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="service-card">
+            <h3>Architectural & Master Planning</h3>
+            <p>Comprehensive design solutions for commercial, residential, education, and healthcare infrastructure projects.</p>
+          </article>
+
+          <article class="service-card">
+            <h3>Civil & Structural Engineering</h3>
+            <p>Full-scale structural design, geotechnical assessments, and bridge/highway development tailored to regional codes.</p>
+          </article>
+
+          <article class="service-card">
+            <h3>Environmental & Safety Audits</h3>
+            <p>Environmental Impact Assessments (EIA), OHS management, and municipal solid waste mitigation protocols.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consultation & Lead Generation Form -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div>
+            <h2>Let's Discuss Your Next Project</h2>
+            <p style="margin-top: 1rem; color: var(--text-muted);">
+              Whether you need preliminary feasibility surveys, structural blueprints, or project management, our licensed engineers are ready to assist.
+            </p>
+            <ul style="list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+              <li><strong>Email:</strong> info@apexengltd.com</li>
+              <li><strong>Direct Phone:</strong> +254 700 000 000</li>
+              <li><strong>Response Time:</strong> Within 1 business day</li>
+            </ul>
+          </div>
+
+          <!-- Enquiry Form -->
+          <form class="contact-form" action="#" method="POST">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required placeholder="e.g. John Doe">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Work Email *</label>
+              <input type="email" id="email" name="email" required placeholder="name@company.com">
+            </div>
+
+            <div class="form-group">
+              <label for="service">Service Required *</label>
+              <select id="service" name="service" required>
+                <option value="">Select a service</option>
+                <option value="architectural">Architectural & Master Planning</option>
+                <option value="civil">Civil & Structural Engineering</option>
+                <option value="environmental">Environmental Management (EIA/OHS)</option>
+                <option value="surveying">Land & Topographic Surveying</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Project Scope / Summary</label>
+              <textarea id="message" name="message" placeholder="Briefly describe your requirements..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <h3>Apex Engineering Ltd</h3>
+          <p style="margin-top: 0.5rem; color: rgba(255,255,255,0.7); max-width: 320px;">
+            Delivering practical, cost-efficient, and sustainable engineering solutions tailored to exceed project expectations.
+          </p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul style="list-style: none; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+            <li><a href="#services" style="color: rgba(255,255,255,0.8); text-decoration: none;">Services</a></li>
+            <li><a href="#contact" style="color: rgba(255,255,255,0.8); text-decoration: none;">Contact & Inquiries</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-copy">
+        <p>&copy; 2026 Apex Engineering Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Chat CTA (Click-to-Chat) -->
+  <a href="[suspicious link removed]" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Chat with our engineering team on WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.29c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.68 8.24-8.22 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.88.86-.88 2.09s.9 2.42 1.03 2.59c.12.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.31z"/>
+    </svg>
+  </a>
+
+</body>
+</html>
